@@ -1,5 +1,3 @@
-import index from "./views/index.vue"
-import notFound from "./views/404.vue"
 
 const routes = [
     {
@@ -8,11 +6,15 @@ const routes = [
     },
     {
         path:"/index",
-        component: index
+        component: () => import(/* webpackChunkName: "route1" */ './views/index.vue')
+    },
+    {
+        path:"/axios",
+        component: () => import(/* webpackChunkName: "route1" */ './views/axios.vue')
     },
     {
         path:"*",
-        component: notFound
+        component: () => import(/* webpackChunkName: "route1" */ './views/404.vue')
     }
 ];
 export default routes;

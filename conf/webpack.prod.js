@@ -18,6 +18,7 @@ const Config = {
     plugins: [
         new HtmlWebpackPlugin({
             template: resolve(__dirname, "../src/index.html"),
+            favicon: resolve(__dirname, "../favicon.ico"),
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,
