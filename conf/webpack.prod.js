@@ -8,6 +8,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const merge = require('webpack-merge');
+const CloudCDNLinks = require('./cdn.conf.json');
 
 const Config = {
     output: {
@@ -15,8 +16,15 @@ const Config = {
         filename: "./js/[name].bundle.[hash:8].js",
         chunkFilename: './js/[name].bundle.[chunkhash:8].js'
     },
+    externals: {
+        'vue': 'Vue',
+        'vue-router': 'VueRouter',
+        'axios': 'axios',
+        'vuex': 'Vuex'
+    },
     plugins: [
         new HtmlWebpackPlugin({
+            CloudCdnLinks: CloudCDNLinks,
             template: resolve(__dirname, "../src/index.html"),
             favicon: resolve(__dirname, "../favicon.ico"),
             minify: {

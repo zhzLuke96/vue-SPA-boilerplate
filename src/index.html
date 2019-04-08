@@ -9,6 +9,9 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <% if(htmlWebpackPlugin.options.CloudCdnLinks != false) {var cLinks = htmlWebpackPlugin.options.CloudCdnLinks.Css;var sLinks = htmlWebpackPlugin.options.CloudCdnLinks.JavaScript;for(var key in sLinks){ %>
+            <script src= '<%= sLinks[key] %>'></script><% }for(var key in cLinks){ %>
+            <link href='<%= cLinks[key] %>' rel="stylesheet"><% }} %>
     </head>
     <body>
         <!--[if lt IE 7]>

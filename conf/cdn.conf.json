@@ -1,0 +1,16 @@
+{
+    "repository": {
+        "name": "vue-spa",
+        "version": "1.0.0",
+        "private": true
+    },
+    "JavaScript" : {
+        "vue" : "https://cdn.bootcss.com/vue/2.6.10/vue.min.js",
+        "axios" : "https://cdn.bootcss.com/axios/0.18.0/axios.min.js",
+        "vuex": "https://cdn.bootcss.com/vuex/3.1.0/vuex.min.js",
+        "vue-router": "https://cdn.bootcss.com/vue-router/3.0.2/vue-router.min.js"
+    },
+    "Css" : {
+        
+    }
+}
