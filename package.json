@@ -8,7 +8,8 @@
     "dev:watch": "webpack --mode development --watch --config ./conf/webpack.dev.js",
     "dev:w": "npm run dev:watch",
     "dev:sev": "webpack-dev-server --inline --open --hot",
-    "build": "webpack --mode production --config ./conf/webpack.prod.js"
+    "build": "webpack --mode production --config ./conf/webpack.prod.js",
+    "build:sit": "webpack --mode production --config ./conf/webpack.sit.js"
   },
   "author": "",
   "license": "GPL3.0",

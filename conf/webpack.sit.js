@@ -1,6 +1,5 @@
 const releaseWebpackConfig = require('./webpack.release.base.js');
 const merge = require('webpack-merge');
-const CloudCDNLinks = require('./cdn.conf.json');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {
     resolve
@@ -8,15 +7,9 @@ const {
 const webpack = require('webpack');
 
 const Config = {
-    externals: {
-        'vue': 'Vue',
-        'vue-router': 'VueRouter',
-        'axios': 'axios',
-        'vuex': 'Vuex'
-    },
     plugins: [
         new HtmlWebpackPlugin({
-            CloudCdnLinks: CloudCDNLinks,
+            CloudCdnLinks: false,
             template: resolve(__dirname, "../src/index.html"),
             favicon: resolve(__dirname, "../favicon.ico"),
             minify: {
@@ -33,7 +26,7 @@ const Config = {
             },
             chunksSortMode: 'dependency'
         }),
-        new webpack.DefinePlugin(require('./prod.env.json')),
+        new webpack.DefinePlugin(require('./sit.env.json')),
     ]
 }
 
