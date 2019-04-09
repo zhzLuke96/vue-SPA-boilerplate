@@ -6,6 +6,12 @@ const {
     resolve
 } = require('path');
 
+const loaderInclude = [
+    resolve(__dirname, '../src'),
+    resolve(__dirname, '../test'),
+    resolve(__dirname, '../mocker')
+]
+
 module.exports = {
     entry: {
         index: resolve(__dirname, "../src/index.js")
@@ -15,7 +21,7 @@ module.exports = {
             vue: resolve(__dirname, '../node_modules/vue/dist/vue.esm.js'),
             '~': resolve(__dirname, '../src')
         },
-        extensions: ['.js', '.vue']
+        extensions: ['.es6','.js', '.vue']
     },
     module: {
         rules: [{
@@ -28,19 +34,19 @@ module.exports = {
                         sass: 'vue-style-loader!sass-loader?indentedSyntax!css-loader!postcss-loader' // <style lang="sass">
                     }
                 },
-                exclude: /node_modules/
+                include:loaderInclude
             },
             {
                 test: /(\.jsx|\.js)$/,
                 use: {
                     loader: "babel-loader"
                 },
-                exclude: /node_modules/
+                include:loaderInclude
             },
             {
                 test: /\.css$/,
                 use: [MiniCssExtractPlugin.loader,'css-loader', 'postcss-loader'],
-                exclude: /node_modules/
+                include:loaderInclude
             },
             {
                 test: /\.(png|jpg|gif)$/,

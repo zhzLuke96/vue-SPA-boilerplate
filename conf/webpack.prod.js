@@ -70,6 +70,7 @@ const Config = {
             filename: "css/[name].bundle.[chunkhash:8].css",
             chunkFilename: "css/[id].bundle.[chunkhash:8].css"
         }),
+        new webpack.DefinePlugin(require('./prod.env.json')),
     ]
 }
 
